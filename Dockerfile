@@ -1,11 +1,4 @@
-#
-#Cleanup orphaned docker volumes
-#Usage:
-#docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes [--dry-run]
-#
-FROM debian:jessie
-
-MAINTAINER Martin van Beurden <chadoe@gmail.com>
+FROM planitar/base
 
 #Install an up to date version of docker
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9 && \
