@@ -1,5 +1,7 @@
 #! /bin/bash
 
+set -eo pipefail
+
 #usage: sudo ./docker-cleanup-volumes.sh [--dry-run]
 
 dockerdir=/var/lib/docker
@@ -57,6 +59,7 @@ else if [ -n "$1" ]; then
 fi
 fi
 
+docker info >/dev/null
 
 #All volumes from all containers
 for container in `${docker_bin} ps -a -q --no-trunc`; do
